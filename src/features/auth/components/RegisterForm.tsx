@@ -1,34 +1,19 @@
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "../../../ui/button";
 import { Form } from "../../../ui/form";
 import { FormInputField } from "../../../shared/components/FormInputFields";
-import React from "react";
+import { formSchema } from "../schemas/authSchema";
 
 
-const formSchema = z.object({
-    username: z.string().min(2, { message: "Username must be at least 2 characters." }),
-    full_name: z.string().min(2, { message: "Full name must be at least 2 characters." }),
-    email: z.string().email({ message: "Please enter a valid email." }),
-    phone_number: z.string().min(8, { message: "Phone number must be at least 8 characters." }),
-    company_name: z.string().optional(),
-    job_title: z.string().optional(),
-    password: z.string().min(8, { message: "Password must be at least 8 characters." }),
-    confirm_password: z.string(),
-}).refine((data) => data.password === data.confirm_password, {
-    path: ["confirm_password"],
-    message: "Passwords do not match",
-});
 
-const RegisterForm = () => {
+
+const RegisterForm = ({ onSubmit }: { onSubmit: (values: z.infer<typeof formSchema>) => void }) => { 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
     });
-
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log(values);
-    };
 
     return (
         <Form {...form}>

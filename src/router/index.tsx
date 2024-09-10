@@ -28,22 +28,6 @@ const router = createBrowserRouter([
             }
         ]
     },
-    {
-        path: "/home",
-        element: <UserLayout/>,
-        children: [
-            {
-                path: "/home",
-                element: <DashboardPage/>
-            },
-            {
-                path: "/section",
-                element: <SectionPage/>
-            },
-        
-        ]
-
-    }
 ]);
 
 export default router
