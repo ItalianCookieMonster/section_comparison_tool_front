@@ -1,6 +1,16 @@
+import React from "react"
+import { Outlet } from "react-router-dom"
+import Footer from "../../../shared/components/Footer"
+
+
 const UserLayout = () => {
     return (
-        <div>UserLayout</div>
+        <>
+            <main className="min-h-[100vh]">
+            <Outlet />
+            </main>
+            <Footer />
+        </>
     )
 }
 export default UserLayout
