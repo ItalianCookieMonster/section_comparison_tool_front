@@ -1,3 +1,4 @@
+import React from "react"
 const Footer = () => {
     return (
         <footer className="grid grid-cols-2 bg-foreground text-background text-sm p-5 gap-10 min-h-[30vh] items-strech">
