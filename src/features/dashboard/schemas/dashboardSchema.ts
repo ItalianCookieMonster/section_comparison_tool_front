@@ -1,69 +1,76 @@
 import { z } from "zod";
 
 export const formSchema = z.object({
-    project_name: z.string().min(1, 'Project name is required'),
-    address: z.string().optional(),
-    company_name: z.string().optional(),
-    zip_code: z.string().optional(),
-    contact: z.string().optional(),
-    language: z.string().optional(),
-    currency: z.string().optional(),
-    system: z.string().optional(),
-    cement_content: z.string().optional(),
-    concrete_density: z.string().optional(),
-    concrete_cost: z.string().optional(),
-    labour_cost: z.string().optional(),
-    avg_truck_capacity: z.string().optional(),
-    avg_truck_cost: z.string().optional(),
-    infill_capacity: z.string().optional(),
-    infill_cost: z.string().optional(),
-    avg_production_time: z.string().optional(),
-    royalty: z.string().optional(),
-    pours_per_year: z.string().optional(),
-
-})
+    title: z.string().min(1, 'Project name is required'),
+    address: z.string().optional().nullable(),
+    company_name: z.string().optional().nullable(),  
+    zip_code: z.string().optional().nullable(),     
+    contact: z.string().optional().nullable(),
+    language: z.string().optional().nullable(),
+    currency: z.string().optional().nullable(),
+    system: z.string().optional().nullable(),
+    cement_content: z.string().transform(val => parseFloat(val)).optional(),
+    concrete_density: z.string().transform(val=>parseFloat(val)).optional().nullable(),
+    concrete_cost: z.string().optional().nullable(),
+    labour_cost: z.string().optional().nullable(),
+    avg_truck_capacity: z.string().transform(val=>parseFloat(val)).optional().nullable(),
+    avg_truck_cost: z.string().optional().nullable(),
+    infill_density: z.string().transform(val=>parseFloat(val)).optional().nullable(),
+    infill_cost: z.string().optional().nullable(),
+    avg_production_time: z.string().transform(val=>parseFloat(val)).optional().nullable(),
+    royalty: z.string().optional().nullable(),
+    pur_per_year: z.string().transform(val=>parseFloat(val)).optional().nullable(), 
+});
 
 
 export const projectInfoInputs = [
     {
-        name: "project_name",
-        label: "Project Name",
-        placeholder: "Project Name",
+        name: "title",
+        label: "Title",
+        placeholder: "Title",
+        type: "text",
     },
     {
         name: "address",
         label: "Address",
         placeholder: "Address",
+        type: "text",
     },
     {
         name: "company_name",
         label: "Company Name",
         placeholder: "Company Name",
+        type: "text",
     },
     {
         name: "zip_code",
         label: "Zip Code",
         placeholder: "Zip Code",
+        type: "text",
     }, 
     {
         name: "contact",
         label: "Contact",
         placeholder: "Contact",
+        type: "text",
     },
     {
         name: "currency",
         label: "Currency",
         placeholder: "Currency",
+        type: "text",
     },
     {   
         name: "language",
         label: "Language",
         placeholder: "Language",
+        type: "text",
     }, 
     {
         name: "system",
         label: "System",
         placeholder: "System",
+        type: "text",
     }
 ]
 
@@ -73,55 +80,66 @@ export const technicalDataInputs = [
         name: "cement_content",
         label: "Cement Content",
         placeholder: "Cement Content",
+        type: "string"
     },
     {
         name: "concrete_density",
         label: "Concrete Density",
         placeholder: "Concrete Density",
+        type: "string"
     },
     {
         name: "concrete_cost",
         label: "Concrete Cost",
         placeholder: "Concrete Cost",
+        type: "text",
     },
     {
         name: "labours_cost",
         label: "Labours Cost",
         placeholder: "Labours Cost",
+        type: "text",
     },
     {
         name: "avg_truck_capacity",
         label: "Average Truck Capacity",
         placeholder: "Average Truck Capacity",
+        type: "string",
     },
     {
         name: "avg_truck_cost",
         label: "Average Truck Cost",
         placeholder: "Average Truck Cost",
+        type: "text",
     },
     {
-        name: "infill_capacity",
-        label: "Infill Capacity",
-        placeholder: "Infill Capacity",
+        name: "infill_density",
+        label: "Infill Density",
+        placeholder: "Infill Density",
+        type: "string",
     }, 
     {
         name: "infill_cost",
         label: "Infill Cost",
         placeholder: "Infill Cost",
+        type: "text",
     },
     {
         name: "avg_production_time",
         label: "Average Production Time",
         placeholder: "Average Production Time",
+        type: "string",
     },
     {  
         name: "royalty",
         label: "Royalty",
         placeholder: "Royalty",
+        type: "text",
     }, 
     {
         name: "pours_per_year",
         label: "Pours Per Year",
         placeholder: "Pours Per Year",
+        type: "string",
     }
 ]

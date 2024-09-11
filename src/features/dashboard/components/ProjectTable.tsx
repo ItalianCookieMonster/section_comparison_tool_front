@@ -1,28 +1,17 @@
 import KeyValueList from "../../../shared/components/KeyValueList"
+import { Project } from "../types/types"
 
 
-const keyValueList = [
-    { key: "Cement Content", value: "108.9%" },
-    { key: "Concrete Density", value: "108.9%" },
-    { key: "Average Truck Capacity", value: "19.9" },
-    { key: "Cement Content", value: "108.9%" },
-    { key: "Concrete Density", value: "108.9%" },
-    { key: "Average Truck Capacity", value: "19.9" },
-    { key: "Cement Content", value: "108.9%" },
-    { key: "Concrete Density", value: "108.9%" },
-    { key: "Average Truck Capacity", value: "19.9" },
-];
-
-const ProjectTable = () => {
+const ProjectTable =({ project }: { project: Project }) => {
     return (
         <div>
             <h3 className="font-bold text-4xl text-center my-10">Project Info</h3>
             <div className="grid grid-cols-3 grid-rows-3 grid-flow-col gap-8 w-full">
-                    <KeyValueList keyValueList={keyValueList} />
+                    <KeyValueList keyValueObject={project} />
             </div>
             <h3 className="font-bold text-4xl text-center my-10">Technical Data</h3>
             <div className="grid grid-cols-3 grid-rows-3 grid-flow-col gap-8 w-full">
-                    <KeyValueList keyValueList={keyValueList} />
+                    <KeyValueList keyValueObject={project} />
             </div>
 
         </div>

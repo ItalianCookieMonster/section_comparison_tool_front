@@ -1,19 +1,25 @@
-import { Navigate } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 import { useAuth } from "../../features/auth/hooks/authHook";
-import Layout from "./Layout";
-
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 
 const PrivateLayout = () => {
+    const isAdmin = true;
     const { isAuthorized } = useAuth();
 
     if (isAuthorized === null) {
-        return<div>loading...</div>
+        return <div>loading...</div>
     }
 
     if (isAuthorized) {
         return (
-            <Layout />
+            <>
+                {isAdmin && <NavBar type="admin" />}
+                {!isAdmin && <NavBar type="admin" sections={[{ path: 'section' }]} />}
+                <main className="min-h-[90vh]"><Outlet /></main>
+                <Footer />
+            </>
         )
     } else {
         return <Navigate to="/login" />;

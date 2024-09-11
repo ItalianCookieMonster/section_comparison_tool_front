@@ -32,7 +32,6 @@ const LoginPage = () => {
                 password: values.password
             });
 
-            console.log(response)
             if (response) {
                 console.log('I am here')
                 navigate("/dashboard");
