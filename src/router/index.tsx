@@ -1,18 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../shared/layouts/Layout";
 import LandingPage from "../features/landing/pages/LandingPage";
 import LoginPage from "../features/auth/pages/LoginPage";
 import RegisterPage from "../features/auth/pages/RegisterPage";
 import SectionPage from "../features/dashboard/pages/SectionPage";
 import DashboardPage from "../features/dashboard/pages/DashboardPage";
 import PrivateLayout from "../shared/layouts/PrivateLayout";
+import AdminLayout from "../features/admin/layouts/AdminLayout";
 
 
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
         children: [
             {
                 path: "/",
@@ -33,12 +32,16 @@ const router = createBrowserRouter([
         element: <PrivateLayout />,
         children: [
             {
-                path: "/dashboard",
+                path: "",
                 element: <DashboardPage />
             },
             {
-                path: "/dashboard/sections",
+                path: "section",
                 element: <SectionPage />
+            }, 
+            {
+                path: "admin",
+                element: <AdminLayout />
             }
         ]
     }

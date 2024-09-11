@@ -10,8 +10,10 @@ type Section = {
 
 type NavBarProps = {
     type: 'user' | 'admin' | 'landing';
-    sections: Section[];
+    sections?: Section[];
 }
+
+
 const NavBar: React.FC<NavBarProps> = ({ type, sections }) => {
     const navigate = useNavigate();
     const handleLogout = () => {
@@ -25,7 +27,7 @@ const NavBar: React.FC<NavBarProps> = ({ type, sections }) => {
             <ul className="flex justify-center items-center gap-4">
                 {type === 'user' || type === 'admin' ? <li className="border-b-2 border-b-transparent py-2 hover:border-b-primary"><NavLink to='/dashboard'>Dashboard</NavLink></li> : null}
                 {type === 'admin' ? <li className="border-b-2 border-b-transparent hover:border-b-primary py-2"><NavLink to='/admin'>Admin</NavLink></li> : null}
-                {sections && sections.length > 0 && sections.map((section, index) => <li className="border-b-2 border-b-transparent hover:border-b-primary py-2" key={index}><NavLink to={`/${section.path}`}>Section {index + 1}</NavLink></li>)}
+                {sections && sections.length > 0 && sections.map((section, index) => <li className="border-b-2 border-b-transparent hover:border-b-primary py-2" key={index}><NavLink to={`/dashboard/${section.path}`}>Section {index + 1}</NavLink></li>)}
             </ul>
             {type === 'landing' ?
                 <Button variant="outline" size="sm">

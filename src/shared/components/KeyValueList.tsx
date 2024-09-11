@@ -1,17 +1,15 @@
 import KeyValue from "./KeyValue";
+import { Project, Section } from "../../features/dashboard/types/types";
 
-type KeyValueListProps = {
-    keyValueList: {
-        key: string;
-        value: string;
-    }[];
-};
+interface KeyValueListProps {
+    keyValueObject: Project | Section; 
+}
 
-const KeyValueList: React.FC<KeyValueListProps> = ({ keyValueList }) => {
+const KeyValueList = ({ keyValueObject }: KeyValueListProps) => {
     return (
         <>
-            {keyValueList.map(({ key, value }) => (
-                <KeyValue key={key} keyProp={key} value={value} />
+            {keyValueObject && Object.entries(keyValueObject).map(([key, value]) => (
+                <KeyValue key={key} keyProp={key} value={String(value)} />
             ))}
         </>
     );

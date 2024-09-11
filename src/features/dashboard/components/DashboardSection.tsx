@@ -1,7 +1,10 @@
 import { Button } from "../../../ui/button"
+import { Section } from "../types/types"
 import DashboardCard from "./DashboardCard"
 
-const DashboardSection = (sectionData) => {
+
+
+const DashboardSection = ({sectionData}: {sectionData: Section | null}) => {
     return (
         <section className="flex flex-col items-center my-20">
             <h2 className="text-4xl font-bold text-center mb-4 my-10">Dashboard</h2>
