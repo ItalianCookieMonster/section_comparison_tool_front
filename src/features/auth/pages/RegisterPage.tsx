@@ -7,6 +7,7 @@ import { registerUser } from "../services/authService"
 import { useNavigate } from "react-router-dom";
 import { formSchema } from "../schemas/authSchema";
 import Modal from "../../../shared/components/Modal"
+import { AxiosError } from "axios";
 
 
 
@@ -56,25 +57,28 @@ const RegisterPage = () => {
             });
         } catch (error) {
             let errorMessage = "An unexpected error occurred.";
+            if (error instanceof AxiosError) {
+                if (error.response && error.response.data) {
+                    const backendErrors = error.response.data;
+                    errorMessage = "";
 
-            if (error.response && error.response.data) {
-                const backendErrors = error.response.data;
-                errorMessage = "";
-
-                for (const key in backendErrors) {
-                    if (Object.prototype.hasOwnProperty.call(backendErrors, key)) {
-                        const fieldErrors = backendErrors[key];
-                        errorMessage += `${key}: ${fieldErrors.join(", ")}\n`;
+                    for (const key in backendErrors) {
+                        if (Object.prototype.hasOwnProperty.call(backendErrors, key)) {
+                            const fieldErrors = backendErrors[key];
+                            errorMessage += `${key}: ${fieldErrors.join(", ")}\n`;
+                        }
                     }
                 }
+            } else {
+                errorMessage ="An unexpected error occurred."
             }
-
             setModalData({
                 open: true,
                 title: "Error",
                 message: errorMessage,
                 borderColor: "border-error",
             });
+
         }
     };
 
