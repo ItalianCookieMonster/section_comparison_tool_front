@@ -1,4 +1,3 @@
-import React from "react"
 import {
     Dialog,
     DialogContent,
@@ -7,9 +6,17 @@ import {
     DialogTitle,
 } from "../../ui/dialog"
 
+type ModalProps = {
+    title: string
+    message: string
+    border_color: string
+    open: boolean
+    onOpenChange: (open: boolean) => void
+}
 
 
-const Modal = ({ title, message, border_color, open, onOpenChange }) => {
+
+const Modal = ({ title, message, border_color, open, onOpenChange }: ModalProps) => {
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className={`${border_color} border-2`}>
