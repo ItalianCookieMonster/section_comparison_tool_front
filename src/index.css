@@ -36,6 +36,10 @@
     --border: 0 0% 80%; /* grigio chiaro */
     --input: 0 0% 80%; /* grigio chiaro */
 
+     /* Key and Value */
+     --key: 0 0% 80%; /* colore key (#CCCCCC) */
+     --value: 21 100% 97%; /* colore value (#B88572) */
+
     /* Ring and Radius */
     --ring: 14 67% 46%; /* hover primario */
     --radius: 0.5rem; /* esempio di raggio bordi */
@@ -67,6 +71,11 @@
     --secondary: 19 30% 20%; /* più scuro del secondario 1 per modalità scura */
     --secondary-foreground: 0 0% 100%; /* bianco per contrasto */
 
+     /* Key and Value */
+     --key: 0 0% 80%; /* colore key (#CCCCCC) */
+     --value: 21 100% 97%; /* colore value (#B88572) */
+ 
+
     /* Muted and Accents */
     --muted: 19 30% 20%; /* grigio scuro in modalità scura */
     --muted-foreground: 0 0% 80%; /* grigio chiaro per contrasto */
@@ -74,15 +83,19 @@
     --accent-foreground: 0 0% 100%; /* bianco per contrasto */
 
     /* Destructive */
-    --destructive: 0 84% 60%; /* rosso distruttivo */
-    --destructive-foreground: 0 0% 100%; /* bianco per contrasto */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%; 
+    --warning: 45 100% 50%; 
+    --warning-foreground: 0 0% 20%;
 
     /* Borders and Inputs */
-    --border: 0 0% 40%; /* grigio medio in modalità scura */
-    --input: 0 0% 40%; /* grigio medio in modalità scura */
+    --border: 0 0% 40%; 
+    --input: 0 0% 40%;
+    --border-dark: 0 0% 50%; 
+
 
     /* Ring and Radius */
-    --ring: 0 0% 80%; /* grigio chiaro */
+    --ring: 0 0% 80%;
     --radius: 0.5rem;
 
     /* Additional Colors for Charts or Graphs */
@@ -100,7 +113,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
