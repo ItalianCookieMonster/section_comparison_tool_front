@@ -4,7 +4,7 @@ import DashboardCard from "./DashboardCard"
 const DashboardSection = (sectionData) => {
     return (
         <section className="flex flex-col items-center my-20">
-            <h2 className="text-4xl font-bold text-center mb-4">Dashboard</h2>
+            <h2 className="text-4xl font-bold text-center mb-4 my-10">Dashboard</h2>
 
 
             {

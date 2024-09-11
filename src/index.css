@@ -89,6 +89,8 @@
     /* Borders and Inputs */
     --border: 0 0% 40%; /* grigio medio in modalità scura */
     --input: 0 0% 40%; /* grigio medio in modalità scura */
+    --border-dark: 0 0% 50%; /* grigio medio per contrasto */
+
 
     /* Ring and Radius */
     --ring: 0 0% 80%; /* grigio chiaro */

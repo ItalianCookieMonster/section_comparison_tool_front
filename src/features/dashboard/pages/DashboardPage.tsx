@@ -3,9 +3,7 @@ import ProjectForm from "../components/ProjectForm"
 import ProjectTable from "../components/ProjectTable"
 
 
-const fakeProjectData = {
-    
-}
+const fakeProjectData = true
 
 const DashboardPage = () => {
     return (
@@ -15,7 +13,7 @@ const DashboardPage = () => {
                 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
 
-            {fakeProjectData ? <ProjectForm /> : <ProjectTable />}
+            {!fakeProjectData ? <ProjectForm /> : <ProjectTable />}
 
             <DashboardSection />
 

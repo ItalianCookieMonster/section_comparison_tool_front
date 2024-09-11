@@ -9,11 +9,11 @@ type KeyValueListProps = {
 
 const KeyValueList: React.FC<KeyValueListProps> = ({ keyValueList }) => {
     return (
-        <div>
-            {keyValueList.map((keyValueObj) => (
-                <KeyValue keyValueObj={keyValueObj} key={keyValueObj.key} />
+        <>
+            {keyValueList.map(({ key, value }) => (
+                <KeyValue key={key} keyProp={key} value={value} />
             ))}
-        </div>
+        </>
     );
 };
 
