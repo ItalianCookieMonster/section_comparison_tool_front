@@ -1,5 +1,4 @@
-// src/config/apiConfig.ts
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+export const API_BASE_URL = 'http://localhost:8000/api/v1';
 
 export const AUTH_URLS = {
     LOGIN: `${API_BASE_URL}/auth/jwt/create/`,

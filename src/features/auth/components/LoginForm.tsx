@@ -1,25 +1,16 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/ui/button";
-import { Form } from "@/ui/form";
-import { FormInputField } from "@/shared/components/FormInputFields";
+import { Button } from "../../../ui/button";
+import { Form } from "../../../ui/form";
+import { FormInputField } from "../../../shared/components/FormInputFields";
+import { loginSchema } from "../schemas/authSchema";
 
-
-const formSchema = z.object({
-    username: z.string().min(2, { message: "Username must be at least 2 characters." }),
-    password: z.string().min(8, { message: "Password must be at least 8 characters." }),
-
-});
-
-const LoginForm = () => {
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+const LoginForm = ({ onSubmit }: { onSubmit: (values: z.infer<typeof loginSchema>) => void }) => {
+    const form = useForm<z.infer<typeof loginSchema>>({
+        resolver: zodResolver(loginSchema),
     });
 
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log(values);
-    };
 
     return (
         <Form {...form}>
