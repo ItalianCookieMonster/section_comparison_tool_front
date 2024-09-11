@@ -83,17 +83,19 @@
     --accent-foreground: 0 0% 100%; /* bianco per contrasto */
 
     /* Destructive */
-    --destructive: 0 84% 60%; /* rosso distruttivo */
-    --destructive-foreground: 0 0% 100%; /* bianco per contrasto */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%; 
+    --warning: 45 100% 50%; 
+    --warning-foreground: 0 0% 20%;
 
     /* Borders and Inputs */
-    --border: 0 0% 40%; /* grigio medio in modalità scura */
-    --input: 0 0% 40%; /* grigio medio in modalità scura */
-    --border-dark: 0 0% 50%; /* grigio medio per contrasto */
+    --border: 0 0% 40%; 
+    --input: 0 0% 40%;
+    --border-dark: 0 0% 50%; 
 
 
     /* Ring and Radius */
-    --ring: 0 0% 80%; /* grigio chiaro */
+    --ring: 0 0% 80%;
     --radius: 0.5rem;
 
     /* Additional Colors for Charts or Graphs */

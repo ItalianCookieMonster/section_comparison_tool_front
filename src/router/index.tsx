@@ -5,8 +5,7 @@ import RegisterPage from "../features/auth/pages/RegisterPage";
 import SectionPage from "../features/dashboard/pages/SectionPage";
 import DashboardPage from "../features/dashboard/pages/DashboardPage";
 import PrivateLayout from "../shared/layouts/PrivateLayout";
-import AdminLayout from "../features/admin/layouts/AdminLayout";
-
+import AdminLayout from "../shared/layouts/AdminLayout";
 
 
 const router = createBrowserRouter([

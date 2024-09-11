@@ -47,13 +47,14 @@ export type Section = {
 export type Block = {
     id: number;
     name: string;
-    volPerBlock: number;
+    vol_per_block: number;
     width: number;
     height: number;
     depth: number;
-    faceArea: number;
-    image: string;
+    face_area: number;
+    image: string | null;
 };
+
 
 
 export type SectionBlock = {

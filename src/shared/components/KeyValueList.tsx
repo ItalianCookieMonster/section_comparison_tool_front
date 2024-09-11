@@ -1,8 +1,8 @@
 import KeyValue from "./KeyValue";
-import { Project, Section } from "../../features/dashboard/types/types";
+import { Project, Section, Block } from "../../features/dashboard/types/types";
 
 interface KeyValueListProps {
-    keyValueObject: Project | Section; 
+    keyValueObject: Project | Section | Block ; 
 }
 
 const KeyValueList = ({ keyValueObject }: KeyValueListProps) => {

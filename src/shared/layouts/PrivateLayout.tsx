@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 
 
 const PrivateLayout = () => {
+    const isAdmin = true;
     const { isAuthorized } = useAuth();
 
     if (isAuthorized === null) {
@@ -14,7 +15,8 @@ const PrivateLayout = () => {
     if (isAuthorized) {
         return (
             <>
-                <NavBar type="user" sections={[{ path: 'section' }]}/>
+                {isAdmin && <NavBar type="admin" />}
+                {!isAdmin && <NavBar type="admin" sections={[{ path: 'section' }]} />}
                 <main className="min-h-[90vh]"><Outlet /></main>
                 <Footer />
             </>
