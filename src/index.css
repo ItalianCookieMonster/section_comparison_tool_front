@@ -36,6 +36,10 @@
     --border: 0 0% 80%; /* grigio chiaro */
     --input: 0 0% 80%; /* grigio chiaro */
 
+     /* Key and Value */
+     --key: 0 0% 80%; /* colore key (#CCCCCC) */
+     --value: 21 100% 97%; /* colore value (#B88572) */
+
     /* Ring and Radius */
     --ring: 14 67% 46%; /* hover primario */
     --radius: 0.5rem; /* esempio di raggio bordi */
@@ -66,6 +70,11 @@
     /* Secondary Colors */
     --secondary: 19 30% 20%; /* più scuro del secondario 1 per modalità scura */
     --secondary-foreground: 0 0% 100%; /* bianco per contrasto */
+
+     /* Key and Value */
+     --key: 0 0% 80%; /* colore key (#CCCCCC) */
+     --value: 21 100% 97%; /* colore value (#B88572) */
+ 
 
     /* Muted and Accents */
     --muted: 19 30% 20%; /* grigio scuro in modalità scura */
