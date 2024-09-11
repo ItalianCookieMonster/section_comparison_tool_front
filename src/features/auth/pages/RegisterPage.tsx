@@ -1,4 +1,3 @@
-import React from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import z from "zod"
@@ -39,26 +38,11 @@ const RegisterPage = () => {
         });
 
         if (userResponse && userResponse.status === 201) {
-            // const tokens = userResponse.data.tokens;
-            // localStorage.setItem('accessToken', tokens.access);
-            // localStorage.setItem('refreshToken', tokens.refresh);
             return userResponse;
         }
         throw new Error("User registration failed");
     };
 
-    // const handleAccountCreation = async (userId: string, values: z.infer<typeof formSchema>) => {
-    //     const accountResponse = await createAccount({
-    //         user: userId,
-    //         phone_number: values.phone_number,
-    //         company_name: values.company_name,
-    //         job_title: values.job_title,
-    //     });
-    //     if (accountResponse && accountResponse.status === 201) {
-    //         return accountResponse;
-    //     }
-    //     throw new Error("Account creation failed");
-    // };
 
     const handleRegister = async (values: z.infer<typeof formSchema>) => {
         try {

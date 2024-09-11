@@ -1,5 +1,5 @@
-import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '../../ui/form';
+import { Input } from '../../ui/input';
 import { FieldValues, UseFormRegisterReturn } from 'react-hook-form';
 
 interface FormInputFieldProps {
