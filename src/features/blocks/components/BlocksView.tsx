@@ -8,6 +8,7 @@ import { Block, BlockUpdate } from "../types/types"
 import { Pencil, Trash2 } from "lucide-react"
 import BlockForm from "./BlockForm"
 import Modal from "../../../shared/components/Modal"
+import CustomTable from "../../../shared/components/CustomTable"
 
 const BlocksView = () => {
     const queryClient = useQueryClient();
@@ -101,7 +102,7 @@ const BlocksView = () => {
             {isBlocksLoading && <div>Loading...</div>}
             {isBlocksError && <div>Error: {blocksError}</div>}
 
-            {blocks && <BlocksList blocks={blocks} onBlockClick={handleBlockClick} />}
+            {blocks && <CustomTable data={blocks} onClick={handleBlockClick} caption={"Block List"} />}
             <section className="my-10">
                 <h2 className="text-4xl font-bold">Block Details</h2>
 

@@ -3,13 +3,13 @@ type KeyValueProps = {
     value: string;
 };
 
-const KeyValue: React.FC<KeyValueProps> = ({ keyProp, value }) => {
+const KeyValue = ({ keyProp, value } : KeyValueProps) => {
     return (
-        <div className="grid p-auto grid-template-columns: minmax(150px, 70%) minmax(50px, 30%) border-collapse">
-            <dt className="border border-border_dark border-b-0 bg-[hsl(var(--key))] flex items-center p-3">
+        <div className="flex border border-border_dark w-full">
+            <dt className="flex-grow-[7] flex-shrink-0 min-w-[150px] flex items-center p-3 border-r bg-[hsl(var(--key))]">
                 {keyProp}
             </dt>
-            <dd className="border border-border_dark bg-[hsl(var(--value))] flex items-center p-3 m-0">
+            <dd className="flex-grow-[3] flex-shrink-0 min-w-[50px] flex items-center p-3 bg-[hsl(var(--value))]">
                 {value}
             </dd>
         </div>
