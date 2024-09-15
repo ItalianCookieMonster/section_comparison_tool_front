@@ -1,5 +1,5 @@
 import Footer from "../../../shared/components/Footer"
-import NavBar from "../../../shared/components/NavBar"
+import NavBar from "../../dashboard/components/NavBar"
 
 const LandingPage = () => {
     return (

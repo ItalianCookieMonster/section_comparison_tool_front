@@ -7,33 +7,45 @@ import {
     TableHeader,
     TableRow,
 } from "../../ui/table"
+import { BlockUpdate } from "../../features/blocks/types/types"
 
 
 type CustomTableProps = {
     caption: string;
-    data: any;
+    data: BlockUpdate[];
+    handleClick: (id: number) => void;
 }
 
-const CustomTable = ({caption, data} : CustomTableProps) => {
-    console.log(data)
+const CustomTable = ({ caption, data, handleClick }: CustomTableProps) => {
     return (
         <Table>
             <TableCaption>{caption}</TableCaption>
             <TableHeader>
                 <TableRow>
-                    <TableHead className="w-[100px]">Invoice</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Method</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
+                    {
+                        data[0] && Object.keys(data[0]).map((key) => (
+                            <TableHead key={key}>{key}</TableHead>
+                        ))
+                    }
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <TableRow>
-                    <TableCell className="font-medium">INV001</TableCell>
-                    <TableCell>Paid</TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
+                {data && data.map((row) => (
+                    <TableRow key={row.id} onClick={() =>handleClick(row.id)}>
+                        {
+                            Object.entries(row).map(([key, value]) => (
+                                <TableCell key={key}>
+                                    {key === 'image' ? (
+                                        <img src='../../../public/assets/example_block.png' alt="Table Image" style={{ width: '100px', height: 'auto' }} />
+                                    ) : (
+                                        value
+                                    )}
+                                </TableCell>
+                            ))
+                        }
+                    </TableRow>
+                ))}
+
             </TableBody>
         </Table>
     )

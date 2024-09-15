@@ -4,8 +4,9 @@ import LoginPage from "../features/auth/pages/LoginPage";
 import RegisterPage from "../features/auth/pages/RegisterPage";
 import SectionPage from "../features/dashboard/pages/SectionPage";
 import DashboardPage from "../features/dashboard/pages/DashboardPage";
-import PrivateLayout from "../shared/layouts/PrivateLayout";
-import AdminLayout from "../shared/layouts/AdminLayout";
+import AdminLayout from "../features/admin/layouts/AdminLayout";
+import PrivateRoutes from "../shared/routing/PrivateRoutes";
+import DashboardLayout from "../features/dashboard/layout/DashboardLayout";
 
 
 const router = createBrowserRouter([
@@ -28,19 +29,27 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <PrivateLayout />,
+        element: <PrivateRoutes />,
         children: [
             {
                 path: "",
-                element: <DashboardPage />
+                element: <DashboardLayout  />,
+                children:  [
+                    {
+                        path: "section",
+                        element: <SectionPage />
+                    },
+                ]
             },
             {
-                path: "section",
-                element: <SectionPage />
-            }, 
-            {
                 path: "admin",
-                element: <AdminLayout />
+                element: <AdminLayout />,
+                children: [
+                    {
+                        path: "blocks",
+                        element: <div>Blocks</div>
+                    }
+                ]
             }
         ]
     }
