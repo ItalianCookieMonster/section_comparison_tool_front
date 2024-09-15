@@ -75,7 +75,7 @@ const LoginPage = () => {
             <div className="my-10 mx-auto flex flex-col items-center ">
                 <Header />
                 <LoginForm onSubmit={handleLogin} />
-                <p className="my-5 text-center">Not registered yet? <Link to="/login" className="text-primary font-semibold">Sign Up</Link></p>
+                <p className="my-5 text-center">Not registered yet? <Link to="/register" className="text-primary font-semibold">Sign Up</Link></p>
                 <Modal
                     open={modalData.open}
                     title={modalData.title}
