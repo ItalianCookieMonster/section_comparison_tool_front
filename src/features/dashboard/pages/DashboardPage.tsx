@@ -34,7 +34,7 @@ const DashboardPage = () => {
             {!projectData && (<ProjectForm onSubmit={createProjectMutation.mutateAsync} />)}
             {createProjectMutation.isError && <div>Error: {createProjectMutation.error.message}</div>}
             {projectData && <ProjectTable project={projectData} />}
-            
+
             <DashboardSection sectionData={sectionData} />
 
         </div>
@@ -42,3 +42,4 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
+

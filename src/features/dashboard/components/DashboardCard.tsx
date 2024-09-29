@@ -6,9 +6,9 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "../../../ui/card"
+} from "@/components/ui/card"
 import { CardChart } from "./CardChart"
-import KeyValueList from "../../../shared/components/KeyValueList"
+import KeyValueList from "../../../components/KeyValueList"
 
 export const description = "A pie chart with a label list"
 

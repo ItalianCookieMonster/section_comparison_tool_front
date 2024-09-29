@@ -1,4 +1,4 @@
-import KeyValueList from "../../../shared/components/KeyValueList"
+import KeyValueList from "../../../components/KeyValueList"
 import { Project } from "../types/types"
 
 

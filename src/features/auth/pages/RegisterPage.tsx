@@ -6,7 +6,7 @@ import RegisterForm from "../components/RegisterForm"
 import { registerUser } from "../services/authService"
 import { useNavigate } from "react-router-dom";
 import { formSchema } from "../schemas/authSchema";
-import Modal from "../../../shared/components/Modal"
+import Modal from "../../../components/Modal"
 import { AxiosError } from "axios";
 
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ACCOUNT_URLS, AUTH_URLS } from '../../../config/apiConfig';
 import { User, UserLogin, Account } from '../../../features/auth/types/types';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../../config/constants';
-import api  from '../../../shared/interceptors/apiInterceptor';
+import api  from '../../../interceptors/apiInterceptor';
 
 
 
