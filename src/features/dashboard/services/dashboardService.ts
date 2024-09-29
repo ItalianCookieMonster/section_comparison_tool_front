@@ -1,6 +1,6 @@
 import { DASHBOARD_URLS } from '../../../config/apiConfig';
 import { Project } from '../types/types';
-import api  from '../../../shared/interceptors/apiInterceptor';
+import api  from '../../../interceptors/apiInterceptor';
 
 
 

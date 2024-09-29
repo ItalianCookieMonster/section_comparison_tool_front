@@ -5,7 +5,7 @@ import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
-} from "../../../ui/chart"
+} from "@/components/ui/chart"
 
 
 const chartData = [
