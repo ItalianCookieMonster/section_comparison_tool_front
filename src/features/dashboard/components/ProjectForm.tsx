@@ -1,11 +1,11 @@
-import { FormInputField } from "../../../shared/components/FormInputFields";
-import { Form } from "../../../ui/form";
+import { FormInputField } from "../../../components/FormInputFields";
+import { Form } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom"
 import { z } from "zod";
 import { formSchema, projectInfoInputs, technicalDataInputs } from "../schemas/dashboardSchema";
-import { Button } from "../../../ui/button";
+import { Button } from "@/components/ui/button";
 
 
 type Input = {

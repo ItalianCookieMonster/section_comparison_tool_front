@@ -5,7 +5,7 @@ import { login } from "../services/authService"
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import Header from "../components/Header"
-import Modal from "../../../shared/components/Modal"
+import Modal from "../../../components/Modal"
 import { loginSchema } from "../schemas/authSchema";
 import { AxiosError } from "axios";
 

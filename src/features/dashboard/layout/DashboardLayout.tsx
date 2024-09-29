@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
-import Footer from "../../../shared/components/Footer"
-import NavBar from "../components/NavBar"
+import Footer from "../../../components/Footer"
+import NavBar from "../../../components/NavBar"
 
 const DashboardLayout = ({ isAdmin }: { isAdmin: boolean }) => {
     return (
