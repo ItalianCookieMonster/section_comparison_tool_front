@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 const MainLayout: React.FC = () => {
     return (
         <SectionsProvider>
-            <NavBar type="user" />
+            <NavBar type="admin" />
             <main className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] gap-5">
                 <Outlet />
             </main>

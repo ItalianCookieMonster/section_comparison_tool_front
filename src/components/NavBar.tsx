@@ -26,7 +26,7 @@ const NavBar= ({ type } : NavBarProps) => {
                 </li>
                 {type === 'admin' && (
                     <li className="border-b-2 border-b-transparent hover:border-b-primary py-2">
-                        <NavLink to="/dashboard/admin">Admin</NavLink>
+                        <NavLink to="/admin">Admin</NavLink>
                     </li>
                 )}
                 {sections &&
