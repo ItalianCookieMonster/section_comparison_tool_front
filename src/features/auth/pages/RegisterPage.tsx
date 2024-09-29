@@ -34,15 +34,18 @@ const RegisterPage = () => {
                 duration: 5000,
             });
 
-            navigate("/login");
-            
+            setTimeout(() => {
+                navigate("/login");
+            }, 2000);
+
         } catch (error) {
             const errorMessage = formatErrorMessage(error);
             toast({
                 title: "Registration Failed",
                 description: errorMessage,
                 variant: "destructive",
-                duration: 5000,})
+                duration: 5000,
+            })
 
         }
     };
@@ -55,7 +58,7 @@ const RegisterPage = () => {
                 <RegisterForm onSubmit={handleRegister} />
                 <p className="my-5 text-center">Already Registered? <Link to="/login" className="text-primary font-semibold">Sign In</Link></p>
 
-                <Toaster/>
+                <Toaster />
             </div>
         </>
     )

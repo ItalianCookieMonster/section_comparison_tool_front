@@ -17,7 +17,7 @@ const NavBar = ({ type }: NavBarProps) => {
         logout();
         toast({
             title: "Logout",
-            description: "Se ha cerrado la sesión correctamente",
+            description: "You have successfully logged out.",
             variant: "success",
         });
         navigate('/login');
