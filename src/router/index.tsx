@@ -33,12 +33,12 @@ const router = createBrowserRouter([
                 element: <MainLayout />,
                 children: [
                     {
-                        path: 'dashboard',
+                        path: '',
                         element: <DashboardPage />
                     },
 
                     {
-                        path: 'dashboard/section/:sectionId',
+                        path: '/section/:sectionId',
                         element: <CrossSectionPage />
                     },
                 ]
