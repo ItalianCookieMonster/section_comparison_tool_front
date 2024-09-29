@@ -6,6 +6,7 @@ export const AUTH_URLS = {
     REGISTER: `${API_BASE_URL}/auth/users/`,
     REFRESH: `${API_BASE_URL}/auth/jwt/refresh/`,
     USER: `${API_BASE_URL}/auth/users/me/`,
+    LOGOUT: `${API_BASE_URL}/auth/jwt/logout/`,
 };
 
 export const ACCOUNT_URLS = {
