@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { SectionsProvider } from '../context/SectionContext';
 import Footer from '@/components/Footer';
+import { Toaster } from '@/components/ui/toaster';
 
 const MainLayout: React.FC = () => {
     return (
@@ -11,6 +12,7 @@ const MainLayout: React.FC = () => {
                 <Outlet />
             </main>
             <Footer/>
+            <Toaster/>
         </SectionsProvider>
     );
 };

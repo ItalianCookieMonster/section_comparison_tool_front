@@ -2,19 +2,26 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { logout } from "../features/auth/services/authService";
 import { useSections } from "../hooks/useSections";
+import { toast } from "@/hooks/useToast";
 
 
 type NavBarProps = {
     type: 'user' | 'admin';
 };
 
-const NavBar= ({ type } : NavBarProps) => {
+const NavBar = ({ type }: NavBarProps) => {
     const { sections } = useSections()
     const navigate = useNavigate();
 
     const handleLogout = () => {
         logout();
+        toast({
+            title: "Logout",
+            description: "Se ha cerrado la sesión correctamente",
+            variant: "success",
+        });
         navigate('/login');
+
     };
 
     return (
