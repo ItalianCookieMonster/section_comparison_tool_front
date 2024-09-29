@@ -37,6 +37,8 @@ export const refreshToken = async () => {
 };
 
 
+
+
 export const registerUser = async (user: User) => {
     try {
         const response = await axios.post(AUTH_URLS.REGISTER, user);
