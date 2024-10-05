@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { ACCOUNT_URLS, AUTH_URLS } from '../../../config/apiConfig';
-import { User, UserLogin, Account } from '../../../features/auth/types/types';
+import { AUTH_URLS } from '@/config/apiConfig';
+import { UserLogin, UserWithAccount } from '../../../features/auth/types/types';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../../config/constants';
 import api  from '../../../interceptors/apiInterceptor';
 
@@ -39,7 +39,7 @@ export const refreshToken = async () => {
 
 
 
-export const registerUser = async (user: User) => {
+export const registerUser = async (user: UserWithAccount) => {
     try {
         const response = await axios.post(AUTH_URLS.REGISTER, user);
         return response;
@@ -49,15 +49,6 @@ export const registerUser = async (user: User) => {
     }
 };
 
-export const createAccount = async (account: Account) => {
-    try {
-        const response = await axios.post(ACCOUNT_URLS.PROFILE, account);
-        return response.data;
-    } catch (error) {
-        console.error('Error creating account', error);
-        throw error;
-    }
-};
 
 export const logout = () => {
     localStorage.removeItem(ACCESS_TOKEN);

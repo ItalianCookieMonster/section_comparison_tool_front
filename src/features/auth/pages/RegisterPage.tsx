@@ -20,12 +20,7 @@ const RegisterPage = () => {
 
     const handleRegister = async (values: z.infer<typeof formSchema>) => {
         try {
-            await registerUser({
-                username: values.username,
-                password: values.password,
-                email: values.email,
-                full_name: values.full_name,
-            });
+            await registerUser(values);
 
             toast({
                 title: "Registration Successful",

@@ -6,10 +6,10 @@ import { toast } from "@/hooks/useToast";
 
 
 type NavBarProps = {
-    type: 'user' | 'admin';
+    isAdmin: boolean;
 };
 
-const NavBar = ({ type }: NavBarProps) => {
+const NavBar = ({ isAdmin }: NavBarProps) => {
     const { sections } = useSections()
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const NavBar = ({ type }: NavBarProps) => {
                 <li className="border-b-2 border-b-transparent hover:border-b-primary py-2">
                     <NavLink to="/dashboard">Dashboard</NavLink>
                 </li>
-                {type === 'admin' && (
+                {isAdmin && (
                     <li className="border-b-2 border-b-transparent hover:border-b-primary py-2">
                         <NavLink to="/admin">Admin</NavLink>
                     </li>
