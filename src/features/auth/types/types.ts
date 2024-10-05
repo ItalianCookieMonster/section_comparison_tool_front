@@ -1,21 +1,24 @@
 export type User = {
     email: string;
     password: string;
+    confirm_password: string;
     full_name: string;
     username: string;
 }
+
+export type Account = {
+    company_name?: string;
+    role?: string;
+    phone?: string;
+}
+
+export type UserWithAccount = User & Account;
 
 export type UserLogin = {
     username: string;
     password: string;
 }
 
-export type Account = {
-    user: string;
-    company_name?: string;
-    job_title?: string;
-    phone_number?: string;
-}
 
 
 // export type RegisterResponse = {

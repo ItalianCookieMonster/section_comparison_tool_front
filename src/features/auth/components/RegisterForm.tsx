@@ -33,10 +33,10 @@ const RegisterForm = ({ onSubmit }: { onSubmit: (values: z.infer<typeof formSche
                 />
                 <FormInputField
                     label="Phone Number"
-                    name="phone_number"
+                    name="phone"
                     placeholder="Phone Number"
-                    field={form.register('phone_number')}
-                    error = {form.formState.errors.phone_number?.message}
+                    field={form.register('phone')}
+                    error = {form.formState.errors.phone?.message}
                 />
                 <FormInputField
                     label="Email"
@@ -54,10 +54,10 @@ const RegisterForm = ({ onSubmit }: { onSubmit: (values: z.infer<typeof formSche
                 />
                 <FormInputField
                     label="Job title"
-                    name="job_title"
+                    name="role"
                     placeholder="job title"
-                    field={form.register('job_title')}
-                    error = {form.formState.errors.job_title?.message}
+                    field={form.register('role')}
+                    error = {form.formState.errors.role?.message}
                 />
                 <FormInputField
                     label="Password"

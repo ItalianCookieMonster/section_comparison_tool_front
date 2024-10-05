@@ -9,9 +9,9 @@ export const AUTH_URLS = {
     LOGOUT: `${API_BASE_URL}/auth/jwt/logout/`,
 };
 
-export const ACCOUNT_URLS = {
-    PROFILE: `${API_BASE_URL}/accounts/accounts/`,
-};
+export const USER_URLS = {
+    GET_USER: `${API_BASE_URL}/auth/users/me`,
+}
 
 export const DASHBOARD_URLS = {
     PROJECTS: `${API_BASE_URL}/projects/`,
