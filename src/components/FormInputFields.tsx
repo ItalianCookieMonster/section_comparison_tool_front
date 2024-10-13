@@ -13,6 +13,7 @@ interface FormInputFieldProps {
 }
 
 export const FormInputField: React.FC<FormInputFieldProps> = ({
+    name,
     label,
     placeholder,
     field,
@@ -22,7 +23,7 @@ export const FormInputField: React.FC<FormInputFieldProps> = ({
 }) => {
     return (
         <FormItem className={`space-y-0 mt-0 mb-0 w-[25vw] ${customStyle}`}>
-            <FormLabel className='leading-9'>{label}</FormLabel>
+            <FormLabel className='leading-9' htmlFor={name}>{label}</FormLabel>
             <FormControl>
                 <Input placeholder={placeholder} {...field} type={type} className="hover:border-primary" />
             </FormControl>

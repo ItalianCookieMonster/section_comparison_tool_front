@@ -1,5 +1,5 @@
 import KeyValueList from "../../../../components/KeyValueList";
-import { Block } from "../types/types";
+import { Block } from "../types/blockTypes";
 
 const BlocksList = ({ blocks, onBlockClick }: { blocks: Block[], onBlockClick: (id: number) => void }) => {
     return (
