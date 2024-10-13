@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import z from "zod"
 import { Form } from "../../../../ui/form";
-import { Block, Input, BlockUpdate } from "../types/types"
+import { Block, Input, BlockUpdate } from "../types/blockTypes"
 import { blockFormInputs, blockSchema } from "../schemas/blockSchema"
 import { FormInputField } from "../../../../components/FormInputFields"
 import { Button } from "../../../../ui/button";

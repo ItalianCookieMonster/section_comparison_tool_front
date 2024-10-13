@@ -1,23 +1,17 @@
 import { createContext, useState } from 'react';
 
 interface SectionsContextType {
-    sections: { path: string }[];
-    addSection: () => void;
+    sectionCount: number;
+    setSectionCount: React.Dispatch<React.SetStateAction<number >>;
 }
 
 export const SectionsContext = createContext<SectionsContextType | undefined>(undefined);
 
-export const SectionsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [sections, setSections] = useState<{ path: string }[]>([]);
-
-    const addSection = () => {
-        const newSectionId = sections.length + 1;
-        const newSection = { path: `section-${newSectionId}` };
-        setSections([...sections, newSection]);
-    };
+export const SectionsContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [sectionCount, setSectionCount] = useState(0);
 
     return (
-        <SectionsContext.Provider value={{ sections, addSection }}>
+        <SectionsContext.Provider value={{ sectionCount, setSectionCount }}>
             {children}
         </SectionsContext.Provider>
     );

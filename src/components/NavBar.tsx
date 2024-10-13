@@ -1,16 +1,15 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { logout } from "../features/auth/services/authService";
-import { useSections } from "../hooks/useSections";
+import { useSectionsContext } from "@/hooks/useSectionsContext";
 import { toast } from "@/hooks/useToast";
-
 
 type NavBarProps = {
     isAdmin: boolean;
 };
 
 const NavBar = ({ isAdmin }: NavBarProps) => {
-    const { sections } = useSections()
+    const { sectionCount } = useSectionsContext(); 
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -21,7 +20,6 @@ const NavBar = ({ isAdmin }: NavBarProps) => {
             variant: "success",
         });
         navigate('/login');
-
     };
 
     return (
@@ -29,19 +27,21 @@ const NavBar = ({ isAdmin }: NavBarProps) => {
             <img src="../../../../public/assets/logo.png" alt="logo" className="max-w-[100px]" />
             <ul className="flex justify-center items-center gap-4">
                 <li className="border-b-2 border-b-transparent hover:border-b-primary py-2">
-                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <NavLink to="/">Dashboard</NavLink>
+                </li>
+                <li className="border-b-2 border-b-transparent hover:border-b-primary py-2">
+                    <NavLink to="/projects">Previous projects</NavLink>
                 </li>
                 {isAdmin && (
                     <li className="border-b-2 border-b-transparent hover:border-b-primary py-2">
                         <NavLink to="/admin">Admin</NavLink>
                     </li>
                 )}
-                {sections &&
-                    sections.map((_section, index) => (
-                        <li className="border-b-2 border-b-transparent hover:border-b-primary py-2" key={index}>
-                            <NavLink to={`/dashboard/section/${index + 1}`}>CrossSection {index + 1}</NavLink>
-                        </li>
-                    ))}
+                {Array.from({ length: sectionCount }).map((_, index) => (
+                    <li className="border-b-2 border-b-transparent hover:border-b-primary py-2" key={index}>
+                        <NavLink to={`/section/${index + 1}`}>CrossSection {index + 1}</NavLink>
+                    </li>
+                ))}
             </ul>
             <Button variant="outline" onClick={handleLogout}>
                 Logout

@@ -1,15 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "../features/auth/pages/LoginPage";
 import RegisterPage from "../features/auth/pages/RegisterPage";
-import DashboardPage from "../features/dashboard/pages/DashboardPage";
 import AdminLayout from "../layouts/AdminLayout";
+import DashboardPage from "../pages/DashboardPage";
 import PrivateRoutes from "../routing/PrivateRoutes";
 import AdminComapniesPage from "../features/admin/companies/pages/AdminComapniesPage";
 import AdminReportPage from "../features/admin/report/pages/AdminReportPage";
 import AdminCrossPage from "../features/admin/crossSection/pages/AdminCrossPage";
 import AdminProjectPage from "../features/admin/projects/pages/AdminProjectPage";
-import AdminBlockPage from "../features/admin/blocks/pages/AdminBlockPage";
+// import AdminBlockPage from "../features/admin/blocks/pages/AdminBlockPage";
 import CrossSectionPage from "../features/crossSection/pages/CrossSectionPage";
+import UserProjectsPage from "@/features/projects/pages/UserProjectsPage";
 import MainLayout from "../layouts/MainLayout";
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
                         path: '',
                         element: <DashboardPage />
                     },
+                    {
+                        path: '/projects',
+                        element: <UserProjectsPage />
+                    },
 
                     {
                         path: '/section/:sectionId',
@@ -47,10 +52,10 @@ const router = createBrowserRouter([
                 path: 'admin',
                 element: <AdminLayout />,
                 children: [
-                    {
-                        path: 'blocks',
-                        element: <AdminBlockPage />
-                    },
+                    // {
+                    //     path: 'blocks',
+                    //     element: <AdminBlockPage />
+                    // },
                     {
                         path: 'projects',
                         element: <AdminProjectPage />

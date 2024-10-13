@@ -1,17 +1,17 @@
 type KeyValueProps = {
     keyProp: string;
-    value: string;
+    value: string | null | undefined;
+    icon?: React.ReactNode;  
 };
 
-const KeyValue = ({ keyProp, value } : KeyValueProps) => {
+const KeyValue = ({ keyProp, value, icon }: KeyValueProps) => {
     return (
-        <div className="flex border border-border_dark w-full">
-            <dt className="flex-grow-[7] flex-shrink-0 min-w-[150px] flex items-center p-3 border-r bg-[hsl(var(--key))]">
-                {keyProp}
-            </dt>
-            <dd className="flex-grow-[3] flex-shrink-0 min-w-[50px] flex items-center p-3 bg-[hsl(var(--value))]">
-                {value}
-            </dd>
+        <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-lg border border-gray-200 my-2">
+            <div className="flex items-center space-x-3">
+                {icon && <div className="text-primary">{icon}</div>} 
+                <dt className="font-semibold text-lg text-gray-700">{keyProp}</dt>
+            </div>
+            <dd className="text-gray-600 text-md">{value}</dd>
         </div>
     );
 };
