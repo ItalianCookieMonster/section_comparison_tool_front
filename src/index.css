@@ -31,6 +31,8 @@
     /* Destructive */
     --destructive: 0 68% 39%; /* active primario come distruttivo */
     --destructive-foreground: 0 0% 100%; /* bianco per contrasto */
+    --success: 122 39% 53%; 
+    --success-foreground: 0 0% 100%;
 
     /* Borders and Inputs */
     --border: 0 0% 80%; /* grigio chiaro */
@@ -87,6 +89,8 @@
     --destructive-foreground: 0 0% 100%; 
     --warning: 45 100% 50%; 
     --warning-foreground: 0 0% 20%;
+    --success: 122 39% 53%; 
+    --success-foreground: 0 0% 100%;
 
     /* Borders and Inputs */
     --border: 0 0% 40%; 
@@ -117,5 +121,14 @@
   }
 }
 
+html, body, #root {
+  min-height: 100vh;
+}
 
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-items: space-between;
+}
 

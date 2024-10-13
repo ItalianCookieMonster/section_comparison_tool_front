@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "../../../ui/button";
-import { Form } from "../../../ui/form";
-import { FormInputField } from "../../../shared/components/FormInputFields";
+import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
+import { FormInputField } from "../../../components/FormInputFields";
 import { loginSchema } from "../schemas/authSchema";
 
 const LoginForm = ({ onSubmit }: { onSubmit: (values: z.infer<typeof loginSchema>) => void }) => {

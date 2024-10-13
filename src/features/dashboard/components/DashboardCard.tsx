@@ -6,23 +6,13 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "../../../ui/card"
+} from "@/components/ui/card"
 import { CardChart } from "./CardChart"
-import KeyValueList from "../../../shared/components/KeyValueList"
 
 export const description = "A pie chart with a label list"
 
 
-const DashboardCard = () => {
-
-    const keyValueList = [
-        { key: "Cement Content", value: "108.9%" },
-        { key: "Concrete Density", value: "108.9%" },
-        { key: "Average Truck Capacity", value: "19.9" },
-        { key: "Cement Content", value: "108.9%" },
-        { key: "Concrete Density", value: "108.9%" },
-        { key: "Average Truck Capacity", value: "19.9" },
-    ];
+const DashboardCard = ({session}) => {
 
 
     return (
@@ -31,7 +21,7 @@ const DashboardCard = () => {
                 <CardTitle>Pie Chart - Label List</CardTitle>
                 <CardDescription>
                     <div className="grid grid-cols-2 gap-0 justify-stretch items-stretch w-full border-collapse">
-                        <KeyValueList keyValueList={keyValueList} />
+                        <p>Placeholder</p>
                     </div>
                 </CardDescription>
             </CardHeader>

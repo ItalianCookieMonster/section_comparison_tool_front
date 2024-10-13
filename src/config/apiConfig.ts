@@ -6,15 +6,34 @@ export const AUTH_URLS = {
     REGISTER: `${API_BASE_URL}/auth/users/`,
     REFRESH: `${API_BASE_URL}/auth/jwt/refresh/`,
     USER: `${API_BASE_URL}/auth/users/me/`,
+    LOGOUT: `${API_BASE_URL}/auth/jwt/logout/`,
 };
 
-export const ACCOUNT_URLS = {
-    PROFILE: `${API_BASE_URL}/accounts/accounts/`,
-};
+export const USER_URLS = {
+    GET_USER: `${API_BASE_URL}/auth/users/me`,
+}
+
+export const PROJECT_URLS = {
+    CREATE_PROJECTS: `${API_BASE_URL}/projects/`,
+    GET_PROJECTS: `${API_BASE_URL}/projects/`,
+    UPDATE_PROJECTS: `${API_BASE_URL}/projects/`,
+    DELETE_PROJECTS: `${API_BASE_URL}/projects/`,
+    GET_PROJECT_CROSS_SECTIONS: `${API_BASE_URL}/projects/<int:pk>/sections/`,
+    GET_PROJECT_DETAIL: `${API_BASE_URL}/projects/<int:pk>/`,
+}
+
+export const CROSS_SECTIONS_URLS = {
+    GET_CROSS_SECTIONS_RELATED_PROJECTS: `${API_BASE_URL}/projects/<int:pk>/sections/`,
+}
+
 
 export const DASHBOARD_URLS = {
-    PROJECTS: `${API_BASE_URL}/projects/`,
     SECTIONS: `${API_BASE_URL}/sections/`,
-    BLOCKS: `${API_BASE_URL}/blocks/`,
+    
+}
+
+
+export const BLOCKS_URLS = {
+    GET_BLOCKS: `${API_BASE_URL}/blocks/`,
 }
 

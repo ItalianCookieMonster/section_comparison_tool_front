@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { createBlock, deleteBlock, getAllBlocks, getBockDetail, updateBlock } from "../services/blocksService"
-import BlocksList from "./BlocksList"
-import KeyValueList from "../../../shared/components/KeyValueList"
-import { Button } from "../../../ui/button"
-import { Block, BlockUpdate } from "../types/types"
+// import BlocksList from "./BlocksList"
+import KeyValueList from "../../../../components/KeyValueList"
+import { Button } from "@/components/ui/button";
+import { Block, BlockUpdate } from "../types/blockTypes"
 import { Pencil, Trash2 } from "lucide-react"
 import BlockForm from "./BlockForm"
-import Modal from "../../../shared/components/Modal"
+import Modal from "../../../../components/Modal"
+import CustomTable from "../../../../components/CustomTable"
 
 const BlocksView = () => {
     const queryClient = useQueryClient();
@@ -23,10 +24,7 @@ const BlocksView = () => {
         }
     );
 
-    const { data: blocks, isError: isBlocksError, isLoading: isBlocksLoading, error: blocksError } = useQuery({
-        queryKey: ['blocks'],
-        queryFn: () => getAllBlocks(),
-    })
+
 
     const { data: blockDetail, isError: isBlockError, isLoading: isBlockLoading, error: blockError } = useQuery({
         queryKey: ['block', selectedBlockId],
@@ -45,8 +43,11 @@ const BlocksView = () => {
     }
 
     const handleDeleteBlock = (id: number) => {
+        if (!id) {
+            console.error("Invalid block ID");
+            return;
+        }
         setModalData({ ...modalData, open: true, title: "Delete Block", message: "Are you sure you want to delete this block?", borderColor: "border-destructive" });
-
         deleteBlockMutation.mutate(id);
     }
 
@@ -65,16 +66,15 @@ const BlocksView = () => {
     });
 
     const deleteBlockMutation = useMutation({
-        mutationKey: ['block'],
-        mutationFn: (id: number) => deleteBlock(blockDetail.id),
+        mutationKey: ['delete-block', blockDetail?.id],
+        mutationFn: (id: number) => deleteBlock(id),
         onSuccess: () => {
             setModalData({ ...modalData, open: true, title: "Block Deleted", message: "Block has been deleted successfully.", borderColor: "border-destructive" });
             queryClient.invalidateQueries(['blocks']);
         },
         onError: (error) => {
-            console.error("Error getting block detail:", error);
+            console.error("Error deleting block:", error);
             setModalData({ ...modalData, open: true, title: "Error", message: "An error occurred while deleting the block.", borderColor: "border-error" });
-
         }
     });
 
@@ -99,14 +99,15 @@ const BlocksView = () => {
         <div className="flex flex-col justify-center items-center gap-10">
             <h1 className="text-5xl font-bold">Block Manager</h1>
             {isBlocksLoading && <div>Loading...</div>}
-            {isBlocksError && <div>Error: {blocksError}</div>}
-
-            {blocks && <BlocksList blocks={blocks} onBlockClick={handleBlockClick} />}
+            {/* {isBlocksError && <div>Error: {blocksError}</div>} */}
+            <section>
+                {blocks && <CustomTable data={blocks} handleClick={handleBlockClick} caption={"Block List"} />}
+            </section>
             <section className="my-10">
                 <h2 className="text-4xl font-bold">Block Details</h2>
 
                 {isBlockLoading && <div>Loading...</div>}
-                {isBlockError && <div>Error: {blockError}</div>}
+                {/* {isBlockError && <div>Error: {blockError}</div>} */}
                 <div className="flex justify-end w-full gap-2 my-6">
                     <Button onClick={() => setShowFormCreate(!showFormCreate)} >
                         Create Block
@@ -127,7 +128,7 @@ const BlocksView = () => {
                     </Button>
                 </div>
                 {!showForm && blockDetail && !showFormCreate && <div className="grid grid-cols-4 gap-1 items-stretch">
-                <KeyValueList keyValueObject={blockDetail}/> </div>}
+                    <KeyValueList keyValueObject={blockDetail} /> </div>}
 
                 {showForm && blockDetail ? (
                     <BlockForm blockDetail={blockDetail} onSubmit={updateBlockMutation.mutateAsync} />

@@ -5,7 +5,10 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "types": ["vitest/globals"],
+    "types": ["vitest"],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     
 
     /* Bundler mode */
@@ -26,5 +29,6 @@
 
 
   }, 
-  "include": ["vite.config.ts", "src/**/*"]
+  "include": ["vite.config.ts", "src/**/*"],
+
 }
