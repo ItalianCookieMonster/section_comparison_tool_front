@@ -11,7 +11,7 @@ export const formSchema = z.object({
     language: z.string().optional().nullable(),
 
     // Float fields (converting string inputs to float numbers)
-    concrete_density: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    concrete_density: z.string().min(1, 'Concrete density is required').transform(val => parseFloat(val)),
     avg_truck_capacity: z.string().transform(val => parseFloat(val)).optional().nullable(),
     infill_density: z.string().transform(val => parseFloat(val)).optional().nullable(),
     avg_production_time: z.string().transform(val => parseFloat(val)).optional().nullable(),

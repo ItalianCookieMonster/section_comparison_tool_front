@@ -1,9 +1,11 @@
 import KeyValue from "@/components/KeyValue";
 import { ProjectResponse } from "../types/projectType";
 import { Building, DollarSign, Wrench } from "lucide-react";  // Usa icone a tema
+import { Button } from "@/components/ui/button";
 
-const ProjectTable = ({ project }: { project: ProjectResponse }) => {
+const ProjectTable = ({ project, handleNewProject, addSection}: { project: ProjectResponse, handleNewProject: () => void, addSection: () => void}) => {
     return (
+        <>
         <div className="max-w-6xl mx-auto p-5">
             <h3 className="font-bold text-4xl text-center my-10">Project Overview</h3>
 
@@ -36,6 +38,15 @@ const ProjectTable = ({ project }: { project: ProjectResponse }) => {
                 </div>
             </section>
         </div>
+        <div className="flex justify-around mt-10">
+            <Button onClick={handleNewProject} size="lg">
+                New Project
+            </Button>
+            <Button className="ml-4" size="lg" onClick={addSection}>
+                Add Section
+            </Button>
+        </div>
+        </>
     );
 };
 

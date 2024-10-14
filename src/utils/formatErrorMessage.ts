@@ -3,30 +3,27 @@ import { AxiosError } from 'axios';
 /**
  * Formats an error message based on the provided error object.
  *
- * @param {unknown} error - The error object to format.
+ * @param {unknown} errorObject - The error object to format.
  * @return {string} A formatted error message.
  */
-export const formatErrorMessage = (error: unknown): string => {
-    let errorMessage = "An unexpected error occurred.";
+export const formatErrorMessage = (errorObject: unknown): string => {
+    let errorMessage = 'An unexpected error occurred.';
 
-    if (error instanceof AxiosError) {
-        if (error.response) {
-            if (error.response.status === 500) {
-                errorMessage = "A server error occurred. Please try again later.";
-            } else if (error.response.data) {
-                const backendErrors = error.response.data;
-                errorMessage = "";
+    if (errorObject instanceof AxiosError) {
+        const { response } = errorObject;
 
-                for (const key in backendErrors) {
-                    if (Object.prototype.hasOwnProperty.call(backendErrors, key)) {
-                        const fieldErrors = backendErrors[key];
-                        if (Array.isArray(fieldErrors)) {
-                            errorMessage += `${key}: ${fieldErrors.join(", ")}\n`;
-                        } else {
-                            errorMessage += `${key}: ${fieldErrors}\n`;
-                        }
-                    }
-                }
+        if (response) {
+            const { status, data } = response;
+
+            if (status === 500) {
+                errorMessage = 'A server error occurred. Please try again later.';
+            } else if (data) {
+                errorMessage = Object.entries(data).reduce(
+                    (message, [key, value]) =>
+                        message +
+                        `${key}: ${Array.isArray(value) ? value.join(', ') : value}\n`,
+                    ''
+                );
             }
         }
     }

@@ -32,7 +32,7 @@ export type Section = {
     height?: number | null;
     faceArea?: number | null;
     labourCost?: string | null;    
-    concrete?: number | null;
+    concrete_volume?: number | null;
     concreteCost?: string | null; 
     infill?: number | null;
     infillCost?: string | null;    

@@ -1,21 +1,21 @@
 import { useEffect } from "react";
-import DashboardSection from "@/features/dashboard/components/DashboardSection";
+// import DashboardSection from "@/features/dashboard/components/DashboardSection";
 import ProjectSection from "@/features/projects/components/ProjectSection";
 import Loader from "@/components/Loader";
 import { useSectionsContext } from "@/hooks/useSectionsContext";
 import { useGetProject } from "@/features/projects/hooks/useGetProject";
 
 const DashboardPage = () => {
+    const projectId = localStorage.getItem('project_id');  
     const { setSectionCount } = useSectionsContext();
-    const { data: project, isLoading: projectLoading, error } = useGetProject();
-    const { data: sessions, isLoading: sessionsLoading, error: sessionsError } = useGetProject();
+    const { data: project, isLoading: projectLoading, error } = useGetProject(projectId as string);
     useEffect(() => {
         if (project) {
             setSectionCount(project.sections?.length || 0);
         }
     }, [project, setSectionCount]);
 
-
+    console.log("Project", project);
     // const [sectionData, setSectionData] = useState<number | null>(null);
 
     if (projectLoading) {
@@ -35,7 +35,7 @@ const DashboardPage = () => {
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
 
-            <ProjectSection projectData={project} />
+            <ProjectSection />
             {/* {
                 sessionsLoading ? <Loader /> :
                     sessionsError ? <div>Error: {sessionsError.message}</div> :

@@ -23,7 +23,7 @@ export type Project = {
 };
 
 export type ProjectResponse = {
-    id: number;  // Mantieni l'id del progetto
+    id: number; 
     title: string | null;
     user?: number | null;  
     contact?: string | null;
@@ -45,7 +45,7 @@ export type ProjectResponse = {
     zip_code?: string | null;
     language?: string | null;
     sections?: Section[] | null;         
-    new_section_id: number;
+    // new_section_id: number;
 };
 // export type CreatedProject = Project & { id: number }; 
 
