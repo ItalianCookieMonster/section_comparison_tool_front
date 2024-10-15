@@ -1,4 +1,3 @@
-// Project Type
 export type Project = {
     title: string;
     user?: number | null;  
@@ -7,14 +6,14 @@ export type Project = {
     concrete_density?: number | null;
     currency?: string | null;
     system?: string | null;
-    concrete_cost?: string | null;  
-    labour_cost?: string | null;    
+    concrete_cost?: number | null;  
+    labour_cost?: number | null;    
     avg_truck_capacity?: number | null;
     infill_density?: number | null;
-    infill_cost?: string | null;    
-    avg_truck_cost?: string | null; 
+    infill_cost?: number | null;    
+    avg_truck_cost?: number | null; 
     avg_production_time?: number | null;
-    royalty?: string | null;               
+    royalty?: number | null;               
     pur_per_year?: number | null;
     cement_content?: number | null;
     address?: string | null;
@@ -23,6 +22,32 @@ export type Project = {
     sections?: Section[];         
 };
 
+export type ProjectResponse = {
+    id: number; 
+    title: string | null;
+    user?: number | null;  
+    contact?: string | null;
+    company_name?: string | null;
+    concrete_density?: number | null;
+    currency?: string | null;
+    system?: string | null;
+    concrete_cost?: number | null;  
+    labour_cost?: number | null;    
+    avg_truck_capacity?: number | null;
+    infill_density?: number | null;
+    infill_cost?: number | null;    
+    avg_truck_cost?: number | null; 
+    avg_production_time?: number | null;
+    royalty?: number | null;               
+    pur_per_year?: number | null;
+    cement_content?: number | null;
+    address?: string | null;
+    zip_code?: string | null;
+    language?: string | null;
+    sections?: Section[] | null;         
+    // new_section_id: number;
+};
+// export type CreatedProject = Project & { id: number }; 
 
 export type Section = {
     id: number;
@@ -32,7 +57,7 @@ export type Section = {
     height?: number | null;
     faceArea?: number | null;
     labourCost?: string | null;    
-    concrete_volume?: number | null;
+    concrete?: number | null;
     concreteCost?: string | null; 
     infill?: number | null;
     infillCost?: string | null;    
@@ -42,6 +67,7 @@ export type Section = {
     royalties?: string | null;     
     blocks?: SectionBlock[];       
 };
+
 
 // Block Type
 export type Block = {
@@ -63,3 +89,4 @@ export type SectionBlock = {
     block: number;                
     quantity: number;
 };
+

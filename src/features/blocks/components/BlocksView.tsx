@@ -4,7 +4,7 @@ import { createBlock, deleteBlock, getAllBlocks, getBockDetail, updateBlock } fr
 // import BlocksList from "./BlocksList"
 import KeyValueList from "../../../../components/KeyValueList"
 import { Button } from "@/components/ui/button";
-import { Block, BlockUpdate } from "../types/types"
+import { Block, BlockUpdate } from "../types/blockTypes"
 import { Pencil, Trash2 } from "lucide-react"
 import BlockForm from "./BlockForm"
 import Modal from "../../../../components/Modal"
@@ -24,10 +24,7 @@ const BlocksView = () => {
         }
     );
 
-    const { data: blocks, isError: isBlocksError, isLoading: isBlocksLoading, error: blocksError } = useQuery({
-        queryKey: ['blocks'],
-        queryFn: () => getAllBlocks(),
-    })
+
 
     const { data: blockDetail, isError: isBlockError, isLoading: isBlockLoading, error: blockError } = useQuery({
         queryKey: ['block', selectedBlockId],

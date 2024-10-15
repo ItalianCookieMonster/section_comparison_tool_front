@@ -8,7 +8,7 @@ const AdminLayout = () => {
     const { data: user } = useQuery<User>( { queryKey: ["user"], enabled: false });
 
     if (!user?.is_staff) {
-        return <Navigate to="/dashboard" />;
+        return <Navigate to="/" />;
     }
 
 

@@ -1,26 +1,31 @@
 import { z } from "zod";
 
 export const formSchema = z.object({
+    // String fields
     title: z.string().min(1, 'Project name is required'),
     address: z.string().optional().nullable(),
-    company_name: z.string().optional().nullable(),  
-    zip_code: z.string().optional().nullable(),     
+    company_name: z.string().optional().nullable(),
     contact: z.string().optional().nullable(),
-    language: z.string().optional().nullable(),
+    zip_code: z.string().optional().nullable(),
     currency: z.string().optional().nullable(),
-    system: z.string().optional().nullable(),
-    cement_content: z.string().transform(val => parseFloat(val)).optional(),
-    concrete_density: z.string().transform(val=>parseFloat(val)).optional().nullable(),
-    concrete_cost: z.string().optional().nullable(),
-    labour_cost: z.string().optional().nullable(),
-    avg_truck_capacity: z.string().transform(val=>parseFloat(val)).optional().nullable(),
-    avg_truck_cost: z.string().optional().nullable(),
-    infill_density: z.string().transform(val=>parseFloat(val)).optional().nullable(),
-    infill_cost: z.string().optional().nullable(),
-    avg_production_time: z.string().transform(val=>parseFloat(val)).optional().nullable(),
-    royalty: z.string().optional().nullable(),
-    pur_per_year: z.string().transform(val=>parseFloat(val)).optional().nullable(), 
+    language: z.string().optional().nullable(),
+
+    // Float fields (converting string inputs to float numbers)
+    concrete_density: z.string().min(1, 'Concrete density is required').transform(val => parseFloat(val)),
+    avg_truck_capacity: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    infill_density: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    avg_production_time: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    cem_content: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    pur_per_year: z.string().transform(val => parseFloat(val)).optional().nullable(),
+
+    // Decimal fields (converting string inputs to float)
+    concrete_cost: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    labour_cost: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    avg_truck_cost: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    infill_cost: z.string().transform(val => parseFloat(val)).optional().nullable(),
+    royalty: z.string().transform(val => parseFloat(val)).optional().nullable(),
 });
+
 
 
 export const projectInfoInputs = [
@@ -78,15 +83,15 @@ export const projectInfoInputs = [
 export const technicalDataInputs = [
     {
         name: "cement_content",
-        label: "Cement Content",
-        placeholder: "Cement Content",
-        type: "string"
+        label: "Cement Content %",
+        placeholder: "16",
+        type: "text"
     },
     {
         name: "concrete_density",
         label: "Concrete Density",
         placeholder: "Concrete Density",
-        type: "string"
+        type: "text"
     },
     {
         name: "concrete_cost",
@@ -104,7 +109,7 @@ export const technicalDataInputs = [
         name: "avg_truck_capacity",
         label: "Average Truck Capacity",
         placeholder: "Average Truck Capacity",
-        type: "string",
+        type: "text",
     },
     {
         name: "avg_truck_cost",
@@ -116,7 +121,7 @@ export const technicalDataInputs = [
         name: "infill_density",
         label: "Infill Density",
         placeholder: "Infill Density",
-        type: "string",
+        type: "text",
     }, 
     {
         name: "infill_cost",
@@ -128,7 +133,7 @@ export const technicalDataInputs = [
         name: "avg_production_time",
         label: "Average Production Time",
         placeholder: "Average Production Time",
-        type: "string",
+        type: "text",
     },
     {  
         name: "royalty",
@@ -140,6 +145,6 @@ export const technicalDataInputs = [
         name: "pours_per_year",
         label: "Pours Per Year",
         placeholder: "Pours Per Year",
-        type: "string",
+        type: "text",
     }
 ]
