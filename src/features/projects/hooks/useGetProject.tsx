@@ -1,16 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProjectById}  from "../services/projectService";
+import { getProjectById } from "../services/projectService";
 
-export const useGetProject = () => {
-    const projectId = localStorage.getItem('project_id');  
-
-    if (!projectId) {
-        throw new Error('Project ID not found');
-    }
-
+export const useGetProject = (projectId?: string) => {
     const query = useQuery({
         queryKey: ['project', projectId],
-        queryFn: () => getProjectById(projectId),
+        queryFn: () => getProjectById(projectId as string),
         enabled: !!projectId,  
         staleTime: 1000 * 60 * 30,  
     });

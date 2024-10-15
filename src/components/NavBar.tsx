@@ -3,15 +3,26 @@ import { Button } from "./ui/button";
 import { logout } from "../features/auth/services/authService";
 import { useSectionsContext } from "@/hooks/useSectionsContext";
 import { toast } from "@/hooks/useToast";
+import { Project } from "@/features/projects/types/projectType";
+import { useEffect } from "react";
 
 type NavBarProps = {
     isAdmin: boolean;
+    project: Project | null;
 };
 
-const NavBar = ({ isAdmin }: NavBarProps) => {
-    const { sectionCount } = useSectionsContext(); 
+const NavBar = ({ isAdmin, project }: NavBarProps) => {
+    const { sectionCount, setSectionCount } = useSectionsContext();
+    console.log("Project in navbar: ", project)
+
     const navigate = useNavigate();
 
+
+    useEffect(() => {
+        if (project) {
+            setSectionCount(project.sections?.length ?? 0);
+        }
+    }, [project, setSectionCount]);
     const handleLogout = () => {
         logout();
         toast({
@@ -38,8 +49,8 @@ const NavBar = ({ isAdmin }: NavBarProps) => {
                     </li>
                 )}
                 {Array.from({ length: sectionCount }).map((_, index) => (
-                    <li className="border-b-2 border-b-transparent hover:border-b-primary py-2" key={index}>
-                        <NavLink to={`/section/${index + 1}`}>CrossSection {index + 1}</NavLink>
+                    <li className="border-b-2 border-b-transparent hover:border-b-primary py-2" key={index + 1}>
+                        <NavLink to={`/section/${project?.sections?.[index]?.id}`}>CrossSection {index + 1}</NavLink>
                     </li>
                 ))}
             </ul>

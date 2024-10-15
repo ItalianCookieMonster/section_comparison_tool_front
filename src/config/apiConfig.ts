@@ -24,7 +24,17 @@ export const PROJECT_URLS = {
 
 export const CROSS_SECTIONS_URLS = {
     GET_CROSS_SECTIONS_RELATED_PROJECTS: `${API_BASE_URL}/projects/<int:pk>/sections/`,
+    CREATE_CROSS_SECTION: `${API_BASE_URL}/sections/`,
+    GET_CROSS_SECTION_BY_ID: `${API_BASE_URL}/sections/<int:pk>/`, 
+    CALCULATE_CROSS_SECTIONS: (sectionId: number) => `${API_BASE_URL}/sections/${sectionId}/calculate-all/`,
+
+    GET_BLOCKS_PER_SECTION: `${API_BASE_URL}/sectionblocks/?section_id=`,
+    POST_BLOCK_PER_SECTION: `${API_BASE_URL}/sectionblocks/`,
+    DELETE_BLOCK_PER_SECTION: `${API_BASE_URL}/sectionblocks/`,
+
 }
+
+
 
 
 export const DASHBOARD_URLS = {
