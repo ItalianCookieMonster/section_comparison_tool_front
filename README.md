@@ -42,7 +42,7 @@ To get the frontend running locally, follow the steps below:
 
 ```bash
 git clone git@github.com:ItalianCookieMonster/section_comparison_tool_front.git
-cd repo-name
+cd section_comparison_tool_front
 ```
 
 ### 2. Install dependencies
